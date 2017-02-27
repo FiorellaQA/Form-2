@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<title>Ficha de datos</title>
+</head>
+<body>
+	<h1>Ingreso de datos</h1>
+	<form action="" id="form1">
+		<p>
+			<label>
+				Ingresa tu Nombre: 
+				<input type="text" id="nombre" required />
+			</label>
+		</p>
+		<p>
+			<label>
+				Ingresa tu Apellido: 
+				<input type="text" id="apellido" required />
+			</label>
+		</p>
+		<p>
+			<label>
+				Ingresa tu DNI: 
+				<input type="text" pattern=".{8,}" id="dni" title="Número de 8 dígitos"required />
+			</label>
+		</p>
+		<p>
+			<label>
+				Ingresa tu Dirección: 
+				<input type="text" id="direccion" required />
+			</label>
+		</p>
+		<button type="submit" id="boton">Enviar Datos</button>
+	</form>
+	<div id="records"></div>
+	<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
