@@ -5,38 +5,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<title>Ficha de datos</title>
+	<script src="assets/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/dist/sweetalert.css">
+	<title>Food Home Delivery</title>
 </head>
 <body>
-	<h1>Ingreso de datos</h1>
-	<form action="" id="form1">
-		<p>
-			<label>
-				Ingresa tu Nombre: 
-				<input type="text" id="nombre" required />
-			</label>
-		</p>
-		<p>
-			<label>
-				Ingresa tu Apellido: 
-				<input type="text" id="apellido" required />
-			</label>
-		</p>
-		<p>
-			<label>
-				Ingresa tu DNI: 
-				<input type="text" pattern=".{8,}" id="dni" title="Número de 8 dígitos"required />
-			</label>
-		</p>
-		<p>
-			<label>
-				Ingresa tu Dirección: 
-				<input type="text" id="direccion" required />
-			</label>
-		</p>
+    <div class="homepage-headline">
+        <h1>Order delicious food online!</h1>
+        <h2>Order food online from the best restaurants near you</h2>
+    </div>
+	<div class="contenedor-formulario">
+		<div class="wrap">
+			<form class="formulario">
+				<div class="input-group">
+					<input type="text" id="nombre" placeholder="Name" autocomplete="off" required />
+					<span id="name_error" style="color: red; font-size: 10px;"></span>
+    				<br>
+				</div>
+				<div class="input-group">
+					<input type="text" id="apellido" placeholder="Lastname" autocomplete="off" required />
+					<span id="lastname_error" style="color: red; font-size: 10px;"></span>
+    				<br>
+				</div>
+				<div class="input-group">
+					<input type="text" pattern=".{8,}" id="dni" placeholder="D.N.I." title="Número de 8 dígitos" autocomplete="off" required />
+					<span id="dni_error" style="color: red; font-size: 10px;"></span>
+   					<br>
+				</div>
+				<div class="input-group">
+					<input type="text" id="direccion" placeholder="Address" autocomplete="off" required />
+					<span id="address_error" style="color: red; font-size: 10px;"></span>
+    				<br>
+				</div>
+			</form>
+		</div>
 		<button type="submit" id="boton">Enviar Datos</button>
-	</form>
-	<div id="records"></div>
+	</div>
+	<div class="print" id="records"></div>
 	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>

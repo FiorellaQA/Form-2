@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+body{
+  font-family: verdana;
+}
+html { 
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url(../img/fondo.png) no-repeat center center fixed; 
+  -webkit-background-size: cover; 
+  -moz-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover; 
+}
+.homepage-headline{
+  margin-top: 90px;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+  text-shadow: 1px 1px #ea5b31;
+}
+.homepage-headline h1 {
+  color: #ea5b31;
+  font-size: 50px;
+  text-shadow: 1px 1px #fff;
+}
+.wrap { /*Centrar*/
+  width: 300%;
+  max-width: 300px;
+  padding: 30px;
+  /*margin: 150px auto; */
+  margin: auto;
+  background: rgba(255,255,255,.5);
+  box-shadow: 0px 0px 3px grey; 
+}
+.contenedor-formulario .formulario .input-group {
+  margin-bottom: 10px; 
+}
+.contenedor-formulario .formulario .input-group input[type="text"],
+.contenedor-formulario .formulario .input-group input[type="email"],
+.contenedor-formulario .formulario .input-group input[type="password"] {
+  font-family: verdana;
+  font-size: 16px;
+  color: #2B2B2B;
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #20AC76; 
+}
+ /* Cambio color placeholder*/
+::-webkit-input-placeholder { 
+  color: grey; 
+}
+.contenedor-formulario button[type="submit"] {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #20AC76;;
+  border-radius: 2px;
+  border: 2px solid #1c9767;;
+  color: #fff;
+  cursor: pointer; /*manito*/
+  display: block; /*el boton por defecto es de tipo inline. Lo cambiamos a inline-block para modificar la altura, el ancho, y el padding*/
+  font-family: verdana;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  margin: 50px auto; 
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; 
+}
+.contenedor-formulario button[type="submit"]:hover {
+  background: #12754F; 
+}
+
+
+
+

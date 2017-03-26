@@ -1,44 +1,83 @@
-var records = document.getElementById('records');
-var boton = document.getElementById('boton');
+//VARIABLES:
+	var records = document.getElementById('records');
+	var nombre = document.getElementById('nombre');
+	var apellido = document.getElementById('apellido');
+	var dni = document.getElementById('dni');
+	var direccion = document.getElementById('direccion');
+	var errorName = document.getElementById("name_error");
+	var errorLastname = document.getElementById("lastname_error");
+	var errorDni = document.getElementById("dni_error");
+	var errorAddress = document.getElementById("address_error");
 
-document.getElementById("form1").addEventListener("submit", function(e){
-	//@see Cancela el evento si este es cancelable, sin detener 
-	//     el resto del funcionamiento del evento, es decir, puede 
-	//     ser llamado de nuevo.
-	e.preventDefault();
+//FUNCIONES:
+function emptyInput(varInput,varSpan){
+	if(varInput.value == ""){
+		varSpan.innerHTML = "* Please complete this field.";
+		return false;
+	}else{
+		varSpan.innerHTML = "";
+		return true;
+	}
+}
+function showMessage(element,message) {
+  	element.innerHTML = message;
+}
+function print(){
+	swal({
+  		title: "Confima tus datos",
+  		text: "<div style='text-align: left;display:inline-block; margin: 0 auto;'>"+
+  					"<p>Nombre: " + nombre.value  +"</p>" +
+					"<p>Apellido: " + apellido.value + "</p>" +
+					"<p>DNI: " + dni.value + "</p>" +
+					"<p>Dirección: " + direccion.value +"</p>" +
+				"</div>",
+		html: true,
+		type: "warning",
+  		showCancelButton: true,
+  		confirmButtonColor: "#DD6B55",
+  		confirmButtonText: "Aceptar",
+  		cancelButtonText: "Cancelar",
+  		closeOnConfirm: false,
+  		closeOnCancel: false
+		},
+		function(isConfirm){
+  				if (isConfirm) {
+    					swal("Enviado!", "Tus datos fueron enviados satisfactoriamente.", "success");
+  				} else {
+    					swal("Cancelado!", "Los datos ingresados fueron cancelados", "error");
+  				}
+	});
+}
 
-	//@trim elimina los espacios de los extremos
-	var nombre = document.getElementById('nombre').value.trim();
-	var apellido = document.getElementById('apellido').value.trim();
-	var dni = document.getElementById('dni').value.trim();
-	var direccion = document.getElementById('direccion').value.trim();
-
-
-	//@see SON REQUERIDOS TODOS LOS CAMPOS
-	if( ! (nombre && apellido && dni && direccion)) 
-	{
-		alert("Verifique que todos los campos estén llenos correctamente.");
+function validation(){
+	if( ! emptyInput(nombre,errorName)){
+		return false;
+	}
+	if( ! emptyInput(apellido,errorLastname)){
+		return false;
+	}
+	if( ! emptyInput(dni,errorDni)){
+		return false;
+	}
+	if( ! emptyInput(direccion,errorAddress)){
 		return false;
 	}
 
-	if(dni.length != 8)
-	{
-		alert("El dni debe tener 8 dígitos.");
+	if(isNaN(dni.value)){
+		showMessage(errorDni,"* The D.N.I. is a number.");
 		return false;
+	} else {
+		showMessage(errorDni,"");
 	}
 
-	//@see isNan cuando es string es true cuando es int es false
-	if(isNaN(dni))
-	{
-		alert("El dni es un numero.");
+	if(dni.value.length != 8){
+		showMessage(errorDni,"The D.N.I. has 8 digits");
 		return false;
+	} else {
+		showMessage(errorDni,"");
 	}
-
-	records.innerHTML = "<ul>";
-		records.innerHTML += "<li>Nombre: " + nombre + "</li>";
-		records.innerHTML += "<li>Apellido: " + apellido + "</li>";
-		records.innerHTML += "<li>DNI: " + dni + "</li>";
-		records.innerHTML += "<li>Dirección: " + direccion + "</li>";
-	records.innerHTML += "</ul>";
-});
+	print();
+}
+//EVENTOS:
+document.getElementById('boton').addEventListener("click", validation);
 
